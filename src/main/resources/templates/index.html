@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Recipe Maker App - Index Page</title>
 </head>
 <body>
-
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Description</td>
+    </tr>
+    <tr th:each="recipe : ${recipes}">
+        <td th:text="${recipe.id}"></td>
+        <td th:text="${recipe.description}"></td>
+    </tr>
+</table>
 </body>
 </html>
