@@ -2,10 +2,16 @@ package com.muditasoft.recipemakerapp.model;
 
 import lombok.Data;
 
+import javax.persistence.*;
+
 @Data
+@Entity
 public class Recipe {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String description;
     private Integer prepTime;
     private Integer cookTime;
@@ -14,4 +20,7 @@ public class Recipe {
     private String url;
     private String directions;
     private Byte[] image;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Notes notes;
 }
